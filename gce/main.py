@@ -15,7 +15,11 @@
 from flask import Flask
 app = Flask(__name__)
 
-
+@app.route('/healthcheck', methods=['GET'])
+def perform_healthcheck():
+    # Perform health check verification work here. 
+    return "Health check passed."
+    
 @app.route('/', methods=['GET'])
 def say_hello():
     return "Hello, world!"
